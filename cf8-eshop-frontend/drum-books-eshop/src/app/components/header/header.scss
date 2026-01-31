@@ -1,0 +1,21 @@
+.top-bar {
+  background-color: #cb0000; 
+
+  .search-container {
+    input {
+      height: 45px;
+      border-radius: 4px 0 0 4px;
+      font-size: 0.9rem;
+    }
+    .btn-search {
+      border-radius: 0 4px 4px 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  .brand-logo {
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: -1px;
+  }
+}
+

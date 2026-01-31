@@ -1,0 +1,24 @@
+.text-purple {
+  color: #b19cd9;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.profile-card {
+  background-color: #f8f9fa;
+}
+
+.book-card {
+  transition: transform 0.2s ease-in-out;
+  
+  &:hover {
+    transform: translateY(-5px);
+    border-color: #b19cd9 !important;
+  }
+}
+
+.spinner-border.text-purple {
+  color: #b19cd9;
+}

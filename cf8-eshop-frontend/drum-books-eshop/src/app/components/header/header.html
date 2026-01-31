@@ -1,0 +1,33 @@
+<header class="w-100 shadow-sm">
+  <div class="top-bar py-3 text-white" style="background-color:#b19cd9;">
+    <div class="container d-flex align-items-center justify-content-between">
+      
+      <a (click)="onLogoClick()" class="brand-logo d-flex align-items-center text-decoration-none text-white" style="cursor: pointer;">
+        <span class="fs-2 fw-bold italic">DrumBooks</span>
+      </a>
+
+      <div class="search-container w-50 mx-4">
+        <div class="input-group">
+          <input 
+            type="text" 
+            class="form-control border-0 shadow-none ps-4" 
+            placeholder="Search for a book"
+            (input)="onSearchChange($event)">
+          <button class="btn btn-search bg-white border-0 text-danger px-3" type="button">
+            <i class="bi bi-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="d-flex align-items-center">
+        <a routerLink="/cart" class="position-relative text-white text-decoration-none">
+          <i class="bi bi-cart3 fs-3"></i>
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-dark border border-light">
+            {{ totalCount() }}
+          </span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</header>

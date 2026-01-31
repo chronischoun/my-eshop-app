@@ -1,0 +1,40 @@
+.footer {
+ background: linear-gradient(to bottom, #f8f9fa 0%, #e9ecef 100%);
+  border-top: 2px solid #212529 !important; 
+  color: #212529;
+}
+
+.brand-purple {
+  color: #b19cd9;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.list-inline-item a {
+  transition: all 0.2s ease-in-out;
+  letter-spacing: 0.5px;
+
+  &:hover {
+    color: #b19cd9 !important; 
+    text-decoration: underline !important;
+  }
+}
+
+.bi-envelope-fill {
+  transition: transform 0.2s ease;
+  display: inline-block;
+
+  &:hover {
+    transform: scale(1.2);
+    color: #b19cd9;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+}

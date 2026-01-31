@@ -1,0 +1,51 @@
+<div class="container mt-5">
+  <h2 class="mb-4 text-dark border-bottom pb-2 italic">BOOKS</h2>
+
+  <div class="row">
+    @if (!isLoading()) {
+      
+      @for (book of filteredBooks(); track book._id ?? $index) {
+        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+          <div class="card h-100 border-0 shadow-sm overflow-hidden p-2">
+            <div class="thumbnail-container shadow-sm rounded"
+                 style="height: 250px; overflow: hidden; background: #f8f9fa;
+                        display: flex; align-items: center; justify-content: center;">
+              
+              @if (book.pdfUuid) {
+                <app-pdf-thumbnail [pdfUrl]="'http://localhost:3000/api/pdf/view/' + book.pdfUuid"></app-pdf-thumbnail>
+              } @else {
+                <div class="d-flex flex-column align-items-center">
+                  <i class="bi bi-file-earmark-pdf text-muted fs-1"></i>
+                  <span class="text-muted small">No Preview Available</span>
+                </div>
+              }
+            </div>
+
+            <div class="card-body text-center d-flex flex-column">
+              <h6 class="card-title fw-bold text-truncate" [title]="book.title">{{ book.title }}</h6>
+              <p class="small text-muted mb-2">{{ book.author || 'Unknown Author' }}</p>
+              <p class="fs-5 fw-bold text-danger mt-auto">{{ book.price }} €</p>
+              
+              <button (click)="addToCart(book)" 
+                      class="btn btn-dark w-100 mt-2 d-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-cart-plus"></i> Add to cart
+              </button>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <div class="col-12 text-center py-5">
+          <p class="text-muted">
+            {{ searchTerm() ? 'No books found matching your search.' : 'No books available in the shop.' }}
+          </p>
+        </div>
+      }
+
+    } @else {
+      <div class="col-12 text-center py-5">
+        <div class="spinner-border text-danger" role="status"></div>
+        <p class="mt-2 text-muted">Loading Books...</p>
+      </div>
+    }
+  </div>
+</div>

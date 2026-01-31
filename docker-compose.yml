@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  drumbooks_db:
+    image: mongo:latest
+    container_name: drumbooks_db
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+  backend:
+    build: ./cf8-eshop-backend/cf8-eshop-backend
+    container_name: drumbooks_backend
+    restart: always
+    ports:
+      - "3000:3000"
+    depends_on:
+      - drumbooks_db
+    env_file:
+      - ./cf8-eshop-backend/cf8-eshop-backend/.env
+    environment:
+      - MONGO_URI=mongodb://drumbooks_db:27017/eshop_db
+    volumes:
+      - pdf-uploads:/usr/src/app/uploads/pdfs
+
+  frontend:
+    build: ./cf8-eshop-frontend
+    container_name: drumbooks_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  mongo-data:
+  pdf-uploads:

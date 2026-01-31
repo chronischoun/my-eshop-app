@@ -1,0 +1,43 @@
+<div class="container mt-5">
+  <div *ngIf="user$ | async as userData; else loadingTemplate">
+    
+    <div class="card p-3 mb-4 shadow-sm border-dark">
+      <h2 class="text-purple italic">My Profile</h2>
+      <p><strong>Email:</strong> {{ userData.email }}</p> 
+    </div>
+
+    <h3 class="fw-bold mb-3">My Digital Library</h3>
+    
+    <div class="row">
+      <div class="col-md-4 mb-3" *ngFor="let pdf of userData.downloadedBooks">
+        <div class="card h-100 border-dark shadow-sm">
+          <div class="card-body text-center d-flex flex-column justify-content-between">
+            <div>
+              <h5 class="fw-bold">{{ pdf.originalName }}</h5>
+              <small class="text-muted d-block mb-3">Format: PDF Document</small>
+            </div>
+            
+            <a [href]="'http://localhost:3000/api/pdf/download/' + pdf.uuid" 
+               target="_blank" 
+               class="btn btn-dark w-100">
+               Download Now
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-12" *ngIf="!userData.downloadedBooks || userData.downloadedBooks.length === 0">
+        <div class="alert alert-secondary text-center">
+          You haven't downloaded any drum books yet.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #loadingTemplate>
+    <div class="text-center mt-5">
+      <div class="spinner-border text-primary"></div>
+      <p>Loading your library...</p>
+    </div>
+  </ng-template>
+</div>

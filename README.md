@@ -26,7 +26,7 @@ To get the project running, you need to have Docker and Docker Compose installed
 
 1.  **Clone the repository:**
     ```shell
-    git clone <your-repository-url>
+    git clone https://github.com/chronischoun/my-eshop-app.git
     cd my-eshop-app
     ```
 

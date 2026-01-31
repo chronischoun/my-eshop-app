@@ -1,0 +1,28 @@
+.nav-bar {
+  background-color: #1a1a1a; // Σκούρο background όπως στη δομή σου
+}
+
+.custom-border {
+  border: 2px solid #b19cd9;
+  border-radius: 8px;
+}
+
+.btn-menu {
+  background-color: transparent;
+  &:hover {
+    background-color: #b19cd9;
+    color: black !important;
+  }
+}
+
+.profile-link {
+  transition: opacity 0.3s;
+  &:hover {
+    color: #b19cd9 !important;
+    opacity: 0.8;
+  }
+}
+
+.text-white {
+  color: white !important;
+}

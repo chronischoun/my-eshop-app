@@ -1,0 +1,56 @@
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+  <div class="card shadow-lg border-0 p-4" style="width: 100%; max-width: 400px; border-radius: 15px;">
+    
+    <div class="text-center mb-4">
+      <h2 class="fw-bold" style="color: #b19cd9;">DrumBooks</h2>
+      <p class="text-muted small">Sign in to access your account</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      
+      <div class="mb-3">
+        <label for="email" class="form-label fw-bold small text-uppercase">Email Address</label>
+        <input 
+          type="email" 
+          id="email"
+          formControlName="email" 
+          class="form-control shadow-sm" 
+          [class.is-invalid]="loginForm.get('email')?.invalid && loginForm.get('email')?.touched"
+          placeholder="e.g. name@drumbooks.com">
+        <div class="invalid-feedback">
+          Please enter a valid email address.
+        </div>
+      </div>
+      
+      <div class="mb-4">
+        <div class="d-flex justify-content-between">
+          <label for="password" class="form-label fw-bold small text-uppercase">Password</label>
+          <a href="#" class="small text-decoration-none text-muted">Forgot?</a>
+        </div>
+        <input 
+          type="password" 
+          id="password"
+          formControlName="password" 
+          class="form-control shadow-sm"
+          [class.is-invalid]="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+        <div class="invalid-feedback">
+          Password must be at least 6 characters.
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        [disabled]="loginForm.invalid" 
+        class="btn w-100 py-2 fw-bold shadow-sm mb-3 text-white" 
+        style="background-color: #b19cd9; border: 2px solid #b19cd9 ; border-radius: 8px;">
+        SIGN IN
+      </button>
+    </form>
+
+    <div class="text-center mt-3 border-top pt-3">
+      <span class="small text-muted">Don't have an account?</span>
+      <a href="#" class="small fw-bold text-danger ms-1 text-dark">Create Account</a>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+canvas {
+  display: none; /* Το κρύβουμε γιατί χρησιμοποιούμε το toDataURL */
+}
+
+.thumbnail {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Για να φαίνεται ολόκληρο το εξώφυλλο χωρίς να παραμορφώνεται */
+  background-color: #fff;
+}
